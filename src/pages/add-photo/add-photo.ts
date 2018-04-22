@@ -59,7 +59,7 @@ export class AddPhotoPage {
 //      console.log(imageData);
       console.log("here is the result");
       console.log(results);
-    this.items.push({ imageData: imageData, results: results})
+    this.items.push({ imageData: imageData, results: results.json()})
     console.log(this.items);
     //this.showAlert(this.items[0]); 
     this.toastCtrl.create({
