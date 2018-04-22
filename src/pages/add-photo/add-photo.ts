@@ -16,6 +16,8 @@ export class AddPhotoPage {
   //items: AngularFireList<any[]>;
    items :any[]=[];
     data:number[]=[3,4,1,2,5];
+    names:string[]=[];
+    predictions:number[]=[];
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
              private camera: Camera,
@@ -81,6 +83,11 @@ export class AddPhotoPage {
 //      console.log(imageData);
       console.log("here is the result");
       console.log(results.json());
+      var obj = results.json();
+      this.names = obj['dict'];
+      this.predictions = obj['predict'][0]['prediction']
+      console.log(this.names);
+      console.log(this.predictions);
     this.items.push({ imageData: imageData, hresult: results.json()})
 
     //this.showAlert(this.items[0]); 
