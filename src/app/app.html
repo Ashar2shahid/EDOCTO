@@ -1,1 +1,42 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="nav"  >
+        <ion-header>
+            <ion-toolbar >
+                <ion-title>EDOCTO</ion-title>
+            </ion-toolbar>
+        </ion-header>
+    
+        <ion-content>
+            <ion-list>
+                    <button
+                    ion-item
+                    icon-left
+                    (click)="onHome(home)">
+                    <ion-icon name="home"></ion-icon>
+                     Home
+                 </button>
+                 <button
+                    ion-item
+                    icon-left
+                    (click)="onAccountDetail(accountDetail)">
+                    <ion-icon name="log-in"></ion-icon>
+                     Account Details
+                 </button>
+                 <button
+                    ion-item
+                    icon-left
+                    (click)="onLeaderboard(leaderboard)">
+                    <ion-icon name="person"></ion-icon>
+                     Leaderboard
+                 </button>
+                 <button
+                    ion-item
+                    icon-left
+                    (click)="onPlans(plans)">
+                     <ion-icon name="contact"> </ion-icon>
+                    Your Plans
+                  </button>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+<ion-nav [root]="rootPage" #nav></ion-nav>

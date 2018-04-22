@@ -1,14 +1,43 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-buttons top>
+          <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>EDOCTO</ion-title>
+      </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-row id="row">
+      <ion-col>
+          <p><ion-icon name="camera" icon-below></ion-icon><br>Add Food</p>
+      </ion-col>
+
+      <ion-col>
+          <p><ion-icon name="bicycle" icon-below></ion-icon><br>Workout</p>
+      </ion-col>
+
+      <ion-col>
+          <p><ion-icon name="water" icon-below></ion-icon><br>Add Water</p>
+      </ion-col>
+    </ion-row> 
+    <div class="progress">
+      <div>
+  <round-progress id="progressbar" [current]="current" [max]="max" 
+                    [stroke]="stroke" [radius]="radius" 
+                    [semicircle]="semicircle" [rounded]="rounded"
+                    [responsive]="responsive" [clockwise]="clockwise" 
+                    [color]="gradient ? 'url(#gradient)' : color" 
+                    [background]="background"
+                    [duration]="duration" [animation]="animation" 
+                    [animationDelay]="animationDelay">
+    </round-progress>
+      </div>
+      <div class="text">
+        <p>Hello</p>
+      </div>
+  </div>
 </ion-content>
