@@ -33,15 +33,18 @@ export class AddPhotoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPhotoPage');
-    this.sort();
+    this.sort(this.data , this.names);
   }
-  sort() {
-    for (let i = 0; i < this.data.length; i++) {
-      for (let j = 0; j < this.data.length-i -1; j++) {
-        if(this.data[j] > this.data[j+1]) {
-          var temp = this.data[j];
-          this.data[j]= this.data[j+1];
-          this.data[j+1] = temp;
+  sort(data:number[] , names:string[]) {
+    for (let i = 0; i < data.length; i++) {
+      for (let j = 0; j < data.length-i -1; j++) {
+        if(data[j] > data[j+1]) {
+          var temp = data[j];
+          var temp2 = names[j];
+          data[j]= data[j+1];
+          names[j] = names[j+1];
+          data[j+1] = temp;
+          names[j+1] = temp2;
         }
         
       }
@@ -86,9 +89,10 @@ export class AddPhotoPage {
       var obj = results.json();
       this.names = obj['dict'];
       this.predictions = obj['predict'][0]['prediction']
+      this.sort(this.predictions  , this.names);
       console.log(this.names);
       console.log(this.predictions);
-    this.items.push({ imageData: imageData, hresult: results.json()})
+    this.items.push({ imageData: imageData, hresult: {predict:this.predictions,name:this.names}})
 
     //this.showAlert(this.items[0]); 
     this.toastCtrl.create({

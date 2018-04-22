@@ -14,10 +14,10 @@
     <ion-card *ngFor="let item of items ">
         <img [src]="'data:image/png;base64,' + item.imageData"/>
         <ion-card-content>
-          <ion-list no-lines *ngFor="let result of  item.hresult['predict']">
-            <ion-list-header>Labels </ion-list-header>
-                <ion-list *ngFor ="let predict of result['prediction']">
-                  <ion-item>{{predict}}</ion-item>
+          <ion-label>Food - Predictions </ion-label>
+          <ion-list no-lines *ngFor="let result of  item.hresult">
+                            <ion-list >
+                  <ion-item>{{result.name}} {{result.predict}}</ion-item>
                 </ion-list>  
           </ion-list>
         </ion-card-content>
