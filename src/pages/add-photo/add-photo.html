@@ -17,13 +17,13 @@
           <ion-list no-lines *ngFor="let result of  item.hresult['predict']">
             <ion-list-header>Labels </ion-list-header>
             <ion-item > {{result['key']}}</ion-item>
-            <ion-grid>
+<!--             <ion-grid>
               <ion-row *ngFor="let prediction of result['prediction']">
                   <ion-col>
                     <p>{{prediction}}</p>
                   </ion-col>
               </ion-row>
-            </ion-grid>
+            </ion-grid> -->
           </ion-list>
         </ion-card-content>
       </ion-card>
