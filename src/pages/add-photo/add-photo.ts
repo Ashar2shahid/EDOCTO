@@ -58,10 +58,8 @@ export class AddPhotoPage {
   saveResults(imageData, results) {
 //      console.log(imageData);
       console.log("here is the result");
-      console.log(results);
-      var obj = JSON.parse(results)
-      console.log(obj)
-    this.items.push({ imageData: imageData, results: obj})
+      console.log(results.json());
+    this.items.push({ imageData: imageData, hresult: results.json()})
     console.log(JSON.parse(results));
     //this.showAlert(this.items[0]); 
     this.toastCtrl.create({
