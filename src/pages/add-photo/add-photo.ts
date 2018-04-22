@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular'; 
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular'; 
 import { AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { GoogleCloudVisionServiceProvider } from '../../providers/google-cloud-vision-service/google-cloud-vision-service';
@@ -19,6 +19,7 @@ export class AddPhotoPage {
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
              private camera: Camera,
+             public loadingCtrl:LoadingController,
              private toastCtrl : ToastController,
              private vision: GoogleCloudVisionServiceProvider,
              private db: AngularFireDatabase,
@@ -43,9 +44,15 @@ export class AddPhotoPage {
 
     this.camera.getPicture(options).then((imageData) => {
       console.log(this.vision.getLabels(imageData))
+      const loading = this.loadingCtrl.create({
+            content:'Loading...',
+            spinner:'dots'
+      })
+      loading.present()
       this.vision.getLabels(imageData).subscribe((result) => {
        this.saveResults(imageData, result);
       console.log(result);
+      loading.dismiss();
      // this.showAlert(result.json().responses);
       }, err => {
         this.showAlert(err);
