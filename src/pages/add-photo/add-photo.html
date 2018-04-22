@@ -16,7 +16,6 @@
         <ion-card-content>
           <ion-list no-lines *ngFor="let result of  item.hresult['predict']">
             <ion-list-header>Labels </ion-list-header>
-            <ion-item > {{result['key']}}</ion-item>
                 <ion-list *ngFor ="let predict of result['prediction']">
                   <ion-item>{{predict}}</ion-item>
                 </ion-list>  

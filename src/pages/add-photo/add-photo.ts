@@ -15,7 +15,7 @@ export class AddPhotoPage {
 
   //items: AngularFireList<any[]>;
    items :any[]=[];
-
+    data:number[]=[3,4,1,2,5];
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
              private camera: Camera,
@@ -31,6 +31,21 @@ export class AddPhotoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddPhotoPage');
+    this.sort();
+  }
+  sort() {
+    for (let i = 0; i < this.data.length; i++) {
+      for (let j = 0; j < this.data.length-i -1; j++) {
+        if(this.data[j] > this.data[j+1]) {
+          var temp = this.data[j];
+          this.data[j]= this.data[j+1];
+          this.data[j+1] = temp;
+        }
+        
+      }
+      
+    }
+    console.log(this.data)
   }
   takePhoto(){
     const options: CameraOptions = {
