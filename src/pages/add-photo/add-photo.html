@@ -14,9 +14,16 @@
     <ion-card *ngFor="let item of items ">
         <img [src]="'data:image/png;base64,' + item.imageData"/>
         <ion-card-content>
-          <ion-list no-lines *ngFor="let result of result['predict']['prediction']">
+          <ion-list no-lines *ngFor="let result of  item.results['predict']">
             <ion-list-header>Labels </ion-list-header>
-            <ion-item > {{result}}</ion-item>
+            <ion-item > {{result['key']}}</ion-item>
+            <ion-grid>
+              <ion-row *ngFor="let prediction of result['prediction']">
+                  <ion-col>
+                    <p>{{prediction}}</p>
+                  </ion-col>
+              </ion-row>
+            </ion-grid>
           </ion-list>
         </ion-card-content>
       </ion-card>
