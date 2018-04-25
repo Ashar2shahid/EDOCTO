@@ -24,6 +24,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environment';
 import { GoogleCloudVisionServiceProvider } from '../providers/google-cloud-vision-service/google-cloud-vision-service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BotPage } from '../pages/bot/bot';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NotificationPage,
     LeaderboardPage,
     PlansPage,
-    AccountDetailPage
+    AccountDetailPage,
+    BotPage
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NotificationPage,
     LeaderboardPage,
     PlansPage,
-    AccountDetailPage
+    AccountDetailPage,
+    BotPage
   ],
   providers: [
     StatusBar,

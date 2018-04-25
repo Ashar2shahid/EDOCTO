@@ -1,9 +1,9 @@
 import { Component } from "@angular/core";
 import { ActivityPage } from "../activity/activity";
 import { AddPhotoPage } from "../add-photo/add-photo";
-import { ProfilePage } from "../profile/profile";
 import { NutritionPage } from "../nutrition/nutrition";
 import { HomePage } from "../home/home";
+import { BotPage } from "../bot/bot";
 
 @Component({
     selector:'tab-page',
@@ -12,7 +12,7 @@ import { HomePage } from "../home/home";
 export class TabPage{
     activity = ActivityPage;
     addPhoto = AddPhotoPage;
-    profile = ProfilePage;
+    bot = BotPage
     nutrition = NutritionPage;
     home = HomePage;
 }

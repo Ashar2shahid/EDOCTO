@@ -29,6 +29,7 @@
     "angular-svg-round-progressbar": "^1.1.1",
     "angularfire2": "^5.0.0-rc.6",
     "cordova-android": "7.0.0",
+    "cordova-plugin-apiai": "^1.7.4",
     "cordova-plugin-camera": "^4.0.2",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-ionic": "^4.1.5",
@@ -66,7 +67,8 @@
         "WARN_DEBUG": "true",
         "UPDATE_API": "https://api.ionicjs.com",
         "MAX_STORE": "2"
-      }
+      },
+      "cordova-plugin-apiai": {}
     }
   }
 }
