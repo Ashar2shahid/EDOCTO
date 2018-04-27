@@ -107,14 +107,14 @@ export class AddPhotoPage {
       //  .catch(err => { this.showAlert(err) });
   }
   getNutri(name:string) {
-    console.log(name)
+    
 
     const body = {food : name}
 
         const predictions = this.http.post('http://35.187.245.40:5000/nutritionmethod', body);
         console.log('in provider')
         console.log(predictions)
-        this.navCtrl.push(NutritionPage,{predictions:predictions,name:name});
+        //this.navCtrl.push(NutritionPage,{predictions:predictions,name:name});
   }
 
   
