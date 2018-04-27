@@ -110,7 +110,7 @@ export class AddPhotoPage {
   getNutri(name:string) {
       const loading = this.loadingCtrl.create({
         content:'Wait..',
-        spinner:'dots0'
+        spinner:'dots'
       })
       loading.present()
       this.vision.getNutri(name).subscribe((result)=>{
