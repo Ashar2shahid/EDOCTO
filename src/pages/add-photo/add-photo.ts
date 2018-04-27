@@ -114,6 +114,8 @@ export class AddPhotoPage {
       })
       loading.present()
       this.vision.getNutri(name).subscribe((result)=>{
+        if(!result)
+        return
         console.log(result)
           this.nutri = result;
           loading.dismiss()
