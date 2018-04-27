@@ -32,24 +32,10 @@ export class MyApp {
     });
   }
 
+  onLoad(page:any) {
+    this.nav.setRoot(page)
+    this.menuCtrl.close();
+  }
   
-  onAccountDetail(page:any){
-      this.nav.setRoot(page);
-      this.menuCtrl.close();
-  }
-
-  onLeaderboard(page:any){
-    this.nav.setRoot(page);
-    this.menuCtrl.close();
-  }
-  onPlans(page:any){
-    this.nav.setRoot(page);
-    this.menuCtrl.close();
-  }
-
-  onHome(page:any){
-    this.nav.setRoot(page);
-    this.menuCtrl.close();
-  }
 }
 

@@ -4,6 +4,8 @@ import { AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { GoogleCloudVisionServiceProvider } from '../../providers/google-cloud-vision-service/google-cloud-vision-service';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { NutritionPage } from '../nutrition/nutrition';
+import { Http } from '@angular/http';
 
 @IonicPage()
 @Component({
@@ -21,6 +23,7 @@ export class AddPhotoPage {
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
              private camera: Camera,
+             public http:Http,
              public loadingCtrl:LoadingController,
              private toastCtrl : ToastController,
              private vision: GoogleCloudVisionServiceProvider,
@@ -103,6 +106,18 @@ export class AddPhotoPage {
     //    .then(_ => { })
       //  .catch(err => { this.showAlert(err) });
   }
+  getNutri(name:string) {
+    console.log(name)
+
+    const body = {food : name}
+
+        const predictions = this.http.post('http://35.187.245.40:5000/nutritionmethod', body);
+        console.log('in provider')
+        console.log(predictions)
+        this.navCtrl.push(NutritionPage,{predictions:predictions,name:name});
+  }
+
+  
 
   showAlert(message) {
     let alert = this.alert.create({

@@ -10,6 +10,28 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content >
 
+  <ion-card>
+    <ion-card-header>
+            {{foodName}}
+    </ion-card-header>
+    <ion-card-content>
+        <ion-list>
+            <ion-item>
+              <p>Total Weight {{totalWeight}}</p>
+            </ion-item>
+            <ion-item>
+              <p>Fat {{totalNutri['FAT']['quantity']}}</p>
+            </ion-item>
+            <ion-item>
+              <p>Sugar {{totalNutri['SUGAR']['quantity']}}</p>
+            </ion-item>
+            <ion-item>
+              <p>Protien {{totalNutri['PROCNT']['quantity']}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>

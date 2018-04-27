@@ -17,7 +17,7 @@
           <ion-label>Food - Predictions </ion-label>
           <ion-list no-lines *ngFor="let result of  item.hresult.predict; let i = index">
                             <ion-list >
-                  <ion-item>{{names[i]}} - {{result}}</ion-item>
+                  <ion-item (tap)="getNutri(names[i])">{{names[i]}} - {{result}}</ion-item>
                 </ion-list>  
           </ion-list>
         </ion-card-content>

@@ -42,6 +42,8 @@ export class GoogleCloudVisionServiceProvider {
     //return data;  
   }
 
+    
+
     showAlert(message) {
       let alert = this.alertCtrl.create({
         title: 'from cloud vision',
