@@ -114,11 +114,12 @@ export class AddPhotoPage {
       })
       loading.present()
       this.vision.getNutri(name).subscribe((result)=>{
+        console.log(result)
           this.nutri = result;
           loading.dismiss()
       } )
     console.log(this.nutri)
-        this.navCtrl.push(NutritionPage,{predictions:this.nutri,name:name});
+      //  this.navCtrl.push(NutritionPage,{predictions:this.nutri,name:name});
   }
 
   
