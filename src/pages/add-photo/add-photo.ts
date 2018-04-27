@@ -20,6 +20,7 @@ export class AddPhotoPage {
     data:number[]=[3,4,1,2,5];
     names:string[]=[];
     predictions:number[]=[];
+    nutri:any={}
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
              private camera: Camera,
@@ -107,14 +108,17 @@ export class AddPhotoPage {
       //  .catch(err => { this.showAlert(err) });
   }
   getNutri(name:string) {
-    
-
-    const body = {food : name}
-
-        const predictions = this.http.post('http://35.187.245.40:5000/nutritionmethod', body);
-        console.log('in provider')
-        console.log(predictions)
-        //this.navCtrl.push(NutritionPage,{predictions:predictions,name:name});
+      const loading = this.loadingCtrl.create({
+        content:'Wait..',
+        spinner:'dots0'
+      })
+      loading.present()
+      this.vision.getNutri(name).subscribe((result)=>{
+          this.nutri = result;
+          loading.dismiss()
+      } )
+    console.log(this.nutri)
+        this.navCtrl.push(NutritionPage,{predictions:this.nutri,name:name});
   }
 
   

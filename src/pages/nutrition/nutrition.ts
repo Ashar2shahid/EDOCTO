@@ -31,10 +31,10 @@ export class NutritionPage implements OnInit {
       /* this.nutri = nutrition['name'];
       this.totalWeight = foodData['totalWeight'];
       this.totalNutri = foodData['totalNutrients'] */
-     /*  this.foodName = this.navParams.data['name']
+       this.foodName = this.navParams.data['name']
       this.totalWeight = this.navParams.data['predictions']['totalWeight']
       this.totalNutri = this.navParams.data['predictions']['totalNutrients']
-      console.log(this.nutri); */
+      console.log(this.nutri); 
     }
 
 }

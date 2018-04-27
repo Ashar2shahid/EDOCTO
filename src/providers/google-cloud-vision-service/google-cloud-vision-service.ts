@@ -42,7 +42,15 @@ export class GoogleCloudVisionServiceProvider {
     //return data;  
   }
 
-    
+  getNutri(name:string) {
+    const body = {food : name}
+
+        const predictions = this.http.post('http://35.187.245.40:5000/nutritionmethod', body);
+        console.log('in provider  '+name)
+        console.log(predictions)
+        return predictions;
+  }
+
 
     showAlert(message) {
       let alert = this.alertCtrl.create({
