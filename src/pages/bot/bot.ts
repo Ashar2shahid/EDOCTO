@@ -22,7 +22,7 @@ export class BotPage {
                   console.log('platform is ready')
 
                   ApiAIPromises.init({
-                    clientAccessToken: "ea91bf972d7b42e8be54e3d158294f11"
+                    clientAccessToken: "e0ecd69c3e9c46c89c054fd14767a6e5"
                   })
                   .then((result) =>  console.log(result))
                   
