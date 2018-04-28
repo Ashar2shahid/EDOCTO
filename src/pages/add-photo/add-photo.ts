@@ -121,7 +121,7 @@ export class AddPhotoPage {
           loading.dismiss()
       } )
     console.log(this.nutri)
-        this.navCtrl.push(NutritionPage,{predictions:this.nutri,name:name});
+        //this.navCtrl.push(NutritionPage,{predictions:this.nutri,name:name});
   }
 
   

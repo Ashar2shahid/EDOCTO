@@ -20,7 +20,7 @@ export class NutritionPage implements OnInit {
   
   totalWeight:number;
   totalNutri:any={};
-  foodName:string;
+  foodName:string="";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
@@ -34,7 +34,7 @@ export class NutritionPage implements OnInit {
        this.foodName = this.navParams.data['name']
       this.totalWeight = this.navParams.data['predictions']['totalWeight']
       this.totalNutri = this.navParams.data['predictions']['totalNutrients']
-      console.log(this.nutri); 
+      console.log(this.totalNutri); 
     }
 
 }
