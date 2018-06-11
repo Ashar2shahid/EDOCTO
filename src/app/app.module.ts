@@ -25,6 +25,7 @@ import { environment } from '../environment';
 import { GoogleCloudVisionServiceProvider } from '../providers/google-cloud-vision-service/google-cloud-vision-service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BotPage } from '../pages/bot/bot';
+import { GlobalProvider } from '../providers/global/global';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { BotPage } from '../pages/bot/bot';
     HttpClientModule,
     HttpClient,
     GoogleCloudVisionServiceProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    GlobalProvider
   ]
 })
 export class AppModule {}

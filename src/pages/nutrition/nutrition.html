@@ -5,33 +5,24 @@
             <ion-icon name="menu"></ion-icon>
           </button>
         </ion-buttons>
-        <ion-title>Nutrition</ion-title>
+        <ion-title>Diary</ion-title>
       </ion-navbar>
 </ion-header>
 
 
 <ion-content >
 
-   <ion-card>
-    <ion-card-header>
-            {{foodName}}
-    </ion-card-header>
+  <ion-card *ngFor="let item of items ">
     <ion-card-content>
-       <!--  <ion-list>
-            <ion-item>
-              <p>Total Weight {{totalWeight}}</p>
-            </ion-item>
-            <ion-item>
-              <p>Fat {{totalNutri['FAT']['quantity']}}</p>
-            </ion-item>
-            <ion-item>
-              <p>Sugar {{totalNutri['SUGAR']['quantity']}}</p>
-            </ion-item>
-            <ion-item>
-              <p>Protien {{totalNutri['PROCNT']['quantity']}}</p>
-            </ion-item>
-        </ion-list> -->
+      <ion-label>Food - Nutrition Information </ion-label>
+            <ion-list no-lines>
+              <ion-item>name - {{item.food_name}} - per 1000g</ion-item>
+              <ion-item>calories - {{item.calories_food}}</ion-item>
+              <ion-item>carbs - {{item.carbs_food}}</ion-item>
+              <ion-item>protiens - {{item.protien_food}}</ion-item>
+              <ion-item>fats - {{item.fat_food}}</ion-item>
+            </ion-list>
     </ion-card-content>
-  </ion-card> 
+  </ion-card>
   
 </ion-content>

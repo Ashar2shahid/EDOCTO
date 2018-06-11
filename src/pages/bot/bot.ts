@@ -27,23 +27,17 @@ export class BotPage {
                   .then((result) =>  console.log(result))
                   
                 });
-  }
+              }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BotPage');
-  }
-  showAlert(msg:string) {
+              ask(question) {
+                ApiAIPromises.requestText({
+                  query: question
+                })
+                .then(({result: {fulfillment: {speech}}}) => {
+                   this.ngZone.run(()=> {
+                     this.answer = speech;
+                   });
+                })
+              }
 
-  }
-
-  ask(question) {
-    ApiAIPromises.requestText({
-      query: question
-    })
-    .then(({result: {fulfillment: {speech}}}) => {
-       this.ngZone.run(()=> {
-         this.answer = speech;
-       });
-    })
-  }
-}
+            }

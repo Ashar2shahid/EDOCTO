@@ -35,7 +35,7 @@ export class GoogleCloudVisionServiceProvider {
         this.showAlert(data); */
 
     const body = {image : base64Image}
-    const predictions = this.http.post('http://35.187.245.40:5000/postmethod', body);
+    const predictions = this.http.post('https://35.187.245.40:5000/postmethod', body);
     console.log('in provider')
     console.log(predictions)
     return predictions;
@@ -45,7 +45,7 @@ export class GoogleCloudVisionServiceProvider {
   getNutri(name:string) {
     const body = {food : name}
 
-        const predictions = this.http.post('http://35.187.245.40:5000/nutritionmethod', body);
+        const predictions = this.http.post('https://35.187.245.40:5000/nutritionmethod', body);
         console.log('in provider  '+name)
         console.log(predictions)
         return predictions;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import nutrition from '../../data/nutrition';
-import foodData from '../../data/foodData';
+import { GlobalProvider } from '../../providers/global/global'
+
 
 /**
  * Generated class for the NutritionPage page.
@@ -17,24 +17,25 @@ import foodData from '../../data/foodData';
 })
 export class NutritionPage implements OnInit {
   nutri:any={};
-  
+  items:any[]=[];
   totalWeight:number;
   totalNutri:any={};
   foodName:string="";
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  calories:string;
+  fat:string;
+  protien:string;
+  carbs:string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public global: GlobalProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NutritionPage');
+    this.items = this.global.global_items
   }
   ngOnInit() {
       /* this.nutri = nutrition['name'];
       this.totalWeight = foodData['totalWeight'];
       this.totalNutri = foodData['totalNutrients'] */
-       this.foodName = this.navParams.data['name']
-      this.totalWeight = this.navParams.data['predictions']['totalWeight']
-      this.totalNutri = this.navParams.data['predictions']['totalNutrients']
-      console.log(this.totalNutri); 
     }
 
 }

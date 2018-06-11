@@ -6,6 +6,7 @@ import { GoogleCloudVisionServiceProvider } from '../../providers/google-cloud-v
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { NutritionPage } from '../nutrition/nutrition';
 import { Http } from '@angular/http';
+import { GlobalProvider } from '../../providers/global/global'
 
 @IonicPage()
 @Component({
@@ -20,7 +21,11 @@ export class AddPhotoPage {
     data:number[]=[3,4,1,2,5];
     names:string[]=[];
     predictions:number[]=[];
-    nutri:any={}
+    nutri:any={};
+    calories:string;
+    FAT:string;
+    PROTIENS:string;
+    CARBS:string;
   constructor(public navCtrl: NavController,
              public navParams: NavParams,
              private camera: Camera,
@@ -29,6 +34,7 @@ export class AddPhotoPage {
              private toastCtrl : ToastController,
              private vision: GoogleCloudVisionServiceProvider,
              private db: AngularFireDatabase,
+             public global: GlobalProvider,
              private alert: AlertController) {
            
   }
@@ -107,6 +113,39 @@ export class AddPhotoPage {
     //    .then(_ => { })
       //  .catch(err => { this.showAlert(err) });
   }
+
+
+  saveNutriResults(name, results) {
+    //      console.log(imageData);
+          console.log("here is the result");
+          console.log(results.json());
+          var obj = results.json();
+          this.calories = obj['calories'];
+          this.FAT = obj['totalNutrients']['FAT']['quantity'];
+          this.CARBS = obj['totalNutrients']['CHOCDF']['quantity'];
+          this.PROTIENS = obj['totalNutrients']['PROCNT']['quantity'];
+
+
+          //this.predictions = obj['predict'][0]['prediction']
+          //this.sort(this.predictions  , this.names);
+          // console.log(this.calories);
+          // console.log(this.FAT);
+          // console.log(this.CARBS);
+          // console.log(this.PROTIENS);
+          this.global.global_items.push({ food_name: name ,calories_food: this.calories, fat_food: this.FAT , protien_food: this.PROTIENS , carbs_food: this.CARBS });
+        //console.log(this.predictions);
+        //this.items.push({ imageData: imageData, hresult: {predict:this.predictions,name:this.names}})
+    
+        //this.showAlert(this.items[0]); 
+        this.toastCtrl.create({
+          message:this.items[0],
+          duration:3000
+          
+        }).present();
+        //    .then(_ => { })
+          //  .catch(err => { this.showAlert(err) });
+      }
+
   getNutri(name:string) {
       const loading = this.loadingCtrl.create({
         content:'Wait..',
@@ -114,14 +153,10 @@ export class AddPhotoPage {
       })
       loading.present()
       this.vision.getNutri(name).subscribe((result)=>{
-        if(!result)
-        return
-        console.log(result)
-          this.nutri = result;
+          this.saveNutriResults(name, result);
+          console.log(result);
           loading.dismiss()
-      } )
-    console.log(this.nutri)
-        //this.navCtrl.push(NutritionPage,{predictions:this.nutri,name:name});
+      } )        
   }
 
   
